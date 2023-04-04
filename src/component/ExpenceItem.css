@@ -1,0 +1,14 @@
+.container{
+  text-align: center;
+  background-color: aqua;
+}
+.heading{
+  display: flex;
+  text-align: center;
+  background-color: rgb(222, 30, 30);
+}
+.item{
+  display: flex;
+  text-align: center;
+  background-color: rgb(0, 255, 110);
+}
