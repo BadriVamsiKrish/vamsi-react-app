@@ -3,10 +3,31 @@ import './App.css';
 import ExpenceItem from './component/ExpenceItem';
 
 function App() {
+  const data = [
+    {
+      title:'buy car',
+      date:new Date(2000,1,6),
+      amount:50000,
+      location:'hyd'
+    },
+    {
+      title:'buy mobile',
+      date:new Date(2000,4,25),
+      amount:25000,
+      location:'csk'
+    },
+    {
+      title:'buy house',
+      date:new Date(1997,12,3),
+      amount:150000,
+      location:'rcb'
+    }
+  ];
+  
   return (
     <div className="App">
       <h1>hello React...</h1>
-      <ExpenceItem></ExpenceItem>
+      {data.map((i)=>(<ExpenceItem title={i.title} date={i.date} amount={i.amount} location={i.location}></ExpenceItem>))}
     </div>
   );
 }
