@@ -1,6 +1,8 @@
+import React from 'react';
 import logo from './logo.svg';
 import './App.css';
 import ExpenceItem from './component/ExpenceItem';
+import NewExpense from './component/NewExpences/NewExpense';
 
 const App = () => {
   const data = [
@@ -27,6 +29,7 @@ const App = () => {
   return (
     <div className="App">
       <h1>hello React...</h1>
+      <NewExpense></NewExpense>
       {data.map((i)=>(<ExpenceItem title={i.title} date={i.date} amount={i.amount} location={i.location}></ExpenceItem>))}
     </div>
   );
