@@ -1,9 +1,16 @@
 import React from "react";
 import ExpenseForm from './ExpenseForm'
-const NewExpense = () => {
+const NewExpense = (props) => {
+  const onSaveExpensedataHandler=(dataobj)=>{
+    const expenseData={
+      ...dataobj
+    };
+    props.onAddExpense(dataobj);
+  };
+
   return (
   <div className="new-expense">
-    <ExpenseForm></ExpenseForm>  
+    <ExpenseForm onSaveExpensedata={onSaveExpensedataHandler}></ExpenseForm>  
   </div>  
   );
 }

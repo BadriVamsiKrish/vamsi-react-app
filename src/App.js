@@ -25,11 +25,15 @@ const App = () => {
       location:'rcb'
     }
   ];
+  const addExpenseHandler=expense=>{
+    console.log('in app.js');
+    console.log(expense);
+  }
   
   return (
     <div className="App">
       <h1>hello React...</h1>
-      <NewExpense></NewExpense>
+      <NewExpense onAddExpense={addExpenseHandler}></NewExpense>
       {data.map((i)=>(<ExpenceItem title={i.title} date={i.date} amount={i.amount} location={i.location}></ExpenceItem>))}
     </div>
   );
