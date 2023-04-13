@@ -1,40 +1,52 @@
-import React from 'react';
+import React,{useState} from 'react';
 import logo from './logo.svg';
 import './App.css';
-import ExpenceItem from './component/ExpenceItem';
-import NewExpense from './component/NewExpences/NewExpense';
+import { Expenses } from './components/expenses/Expenses';
+import { NewExpense } from './components/new expenses/NewExpense';
+const expenses = [
+  {
+    id: 'e1',
+    title: 'Toilet Paper',
+    amount: 94.12,
+    date: new Date(2020, 7, 14),
+    location:'Hyderabad',
+  },
+  { id: 'e2', title: 'New TV', amount: 799.49, date: new Date(2021, 2, 12), location:'warangal', },
+  {
+    id: 'e3',
+    title: 'Car Insurance',
+    amount: 294.67,
+    date: new Date(2021, 2, 28),
+    location:'Bangalore',
+  },
+  {
+    id: 'e4',
+    title: 'New Desk (Wooden)',
+    amount: 450,
+    date: new Date(2021, 5, 12),
+    location:'Chennai'
+  },
+];
 
-const App = () => {
-  const data = [
-    {
-      title:'buy car',
-      date:new Date('2000-1-6'),
-      amount:50000,
-      location:'hyd'
-    },
-    {
-      title:'buy mobile',
-      date:new Date('2000-4-25'),
-      amount:25000,
-      location:'csk'
-    },
-    {
-      title:'buy house',
-      date:new Date('1997-12-03'),
-      amount:150000,
-      location:'rcb'
-    }
-  ];
-  const addExpenseHandler=expense=>{
-    console.log('in app.js');
-    console.log(expense);
-  }
+function App() {
+  const [expdata,setExpdata]=useState(expenses);
+  const AddExpenseHandler = (newData) =>{
+    setExpdata((prevExpenses)=>{
+      return[newData,...prevExpenses]
+    });
+    expenses.push(newData);
+    const appData={
+      ...expenses
+    };
+    console.log(appData);
+  } 
   
+
+
   return (
     <div className="App">
-      <h1>hello React...</h1>
-      <NewExpense onAddExpense={addExpenseHandler}></NewExpense>
-      {data.map((i)=>(<ExpenceItem title={i.title} date={i.date} amount={i.amount} location={i.location}></ExpenceItem>))}
+      <NewExpense onAddExpense={AddExpenseHandler}/>
+      <Expenses items={expenses}/>
     </div>
   );
 }
