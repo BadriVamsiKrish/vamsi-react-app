@@ -22,7 +22,7 @@ export const ExpenseForm = (props) => {
     const Data={
       title:enterTitle,
       date:new Date(enterDate),
-      amount:enterAmount
+      amount:+enterAmount
     }
     
     console.log(Data);
@@ -51,6 +51,7 @@ export const ExpenseForm = (props) => {
               </div>
               </div>
               <div className='new-expense__actions'>
+                <button>cancel</button>
                   <button type='submit'>Add Expense</button>
               </div>
         
