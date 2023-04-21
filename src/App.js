@@ -5,8 +5,8 @@ import { UsersList } from './components/UserList';
 
 const App = () => {
   const[user,setUser]=useState([]);
-  const AddHandler=(Uname,Uage)=>{
-    setUser([...user,{name:Uname,age:Uage,id:Math.random().toString()}])
+  const AddHandler=(Uname,Uage,Ucollege)=>{
+    setUser([...user,{name:Uname,age:Uage,college:Ucollege,id:Math.random().toString()}])
   }
   
   

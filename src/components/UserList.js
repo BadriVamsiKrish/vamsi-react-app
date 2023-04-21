@@ -7,7 +7,7 @@ export const UsersList = (props) => {
       <ul>
         {console.log(props.users)}
         {props.users.map((user)=>
-        <li className="li" key={user.id}>{user.name}({user.age})
+        <li className="li" key={user.id}>{user.name} of age {user.age} in {user.college} college
         </li>
         )}
       </ul>
